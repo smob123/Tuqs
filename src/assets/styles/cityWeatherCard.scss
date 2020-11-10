@@ -1,0 +1,65 @@
+.city-weather-card {
+    text-align: center;
+    background-color: $light;
+    color: #222222;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 20px 15px;
+
+    h1 {
+        font-size: 90%;
+    }
+
+    h2 {
+        font-size: .9rem;
+    }
+
+    h3 {
+        font-size: .6rem;
+    }
+
+    h4 {
+        font-size: .5rem;
+    }
+
+    .top-container {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        div {
+            &:first-of-type {
+                align-self: flex-end;
+                align-self: baseline;
+                width: 30%;
+                margin-right: 10px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            &:last-child {
+                text-align: start;
+
+                * {
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    .city {
+        margin-bottom: 0;
+        padding-bottom: 5px;
+    }
+
+    .country {
+        margin-top: 0;
+        padding-top: 0;
+    }
+}

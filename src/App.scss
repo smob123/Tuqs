@@ -1,0 +1,64 @@
+/**
+* theme colors
+*/
+$primary: #6165f7;
+$light: #efefef;
+
+$min-width: 1000px;
+
+/**
+* fonts
+*/
+@font-face {
+  font-family: 'Lato-bold';
+  src: url('./assets/fonts/Lato/Lato-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Commissioner';
+  src: url('./assets/fonts/Commissioner/Commissioner-VariableFont_wght.ttf');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: 'Commissioner';
+}
+
+h1 {
+  font-family: 'Lato-bold';
+}
+
+.app-container {
+  display: flex;
+  width: 100%;
+}
+
+.main-content-container {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+@media (min-width: $min-width) {
+  .main-content-container {
+    width: 80vw;
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+@import './assets/styles/cityWeatherCard.scss';
+@import './assets/styles/nav.scss';
+@import './assets/styles/progressBar.scss';
+@import './assets/styles/autocomplete.scss';
+@import './assets/styles/header.scss';
+@import './assets/styles/cityCard.scss';
+@import './assets/styles/home.scss';
+@import './assets/styles/weatherCard.scss';
+@import './assets/styles/graph.scss';
+@import './assets/styles/map.scss';

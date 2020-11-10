@@ -1,0 +1,26 @@
+.home {
+    margin: 10px;
+
+    .section-heading {
+        font-size: 1rem;
+        margin: 1rem;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: $primary;
+    }
+
+    .swiper-pagination {
+        top: 90%;
+    }
+
+    .clickable-slide {
+        div {
+            cursor: pointer;
+        }
+    }
+
+    .selected {
+        color: $primary;
+    }
+}

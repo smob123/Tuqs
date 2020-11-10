@@ -1,0 +1,79 @@
+.nav {
+    position: fixed;
+    transition-duration: .5s;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: $primary;
+    color: $light;
+    z-index: 5;
+    overflow-y: visible;
+
+    .title {
+        text-align: center;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        padding-top: 10px;
+    }
+
+    ul {
+        padding: 0;
+        margin-top: 1.8rem;
+
+        li {
+            list-style-type: none;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            font-size: .8rem;
+            cursor: pointer;
+        }
+
+        li.selected {
+            position: relative;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, .2), rgba(0, 0, 0, 0));
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 5px;
+                height: 100%;
+                background-color: $light;
+                border-radius: 30%;
+                -webkit-box-shadow: 0px 3px 16px 0px rgba(250, 250, 250, 1);
+                -moz-box-shadow: 0px 3px 16px 0px rgba(250, 250, 250, 1);
+                box-shadow: 0px 3px 16px 0px rgba(250, 250, 250, 1);
+            }
+        }
+    }
+
+    .city-weather-card {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.nav.hidden {
+    position: absolute;
+    transform: translateX(-100%);
+}
+
+@media (min-width: $min-width) {
+    .nav {
+        position: relative;
+        display: block;
+        transform: translate(0, 0);
+        width: 20vw;
+    }
+
+    .nav.hidden {
+        position: relative;
+        left: 0;
+        transform: translate(0, 0);
+    }
+}
