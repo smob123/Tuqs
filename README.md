@@ -32,3 +32,7 @@ This is a weather app that displays the forecast of the user's current location,
 <img src='https://user-images.githubusercontent.com/26127333/98643041-4897ba80-2393-11eb-951f-7f629a2226fb.PNG' width='500' />
 
 <br />
+
+# Link
+
+You can visit the website from [ here](https://5faa5849984b4300079ecef0--quizzical-perlman-6e29ec.netlify.app)
