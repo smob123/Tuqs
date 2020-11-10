@@ -135,6 +135,11 @@ class Graph extends Component {
      * displays the maximum hourly temperatures
      */
     displayHourlyData() {
+        // check if the temps array has been initialized properly
+        if (!this.state.temps[0]) {
+            return;
+        }
+
         const data = [];
         const labels = [];
         // get today's and tomorrow's dates

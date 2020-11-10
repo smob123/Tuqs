@@ -11,7 +11,7 @@ import snowIcon from '../assets/images/snow.png';
  */
 export async function fetchWeatherByCoordinates(latitude, longitude) {
     // fetch the weather data
-    const weatherData = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=12a1d4d0cb0df5fcb131d94b2a1369f9`);
+    const weatherData = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=12a1d4d0cb0df5fcb131d94b2a1369f9`);
     const json = await weatherData.json();
 
     // make sure that the required data was returned
@@ -74,7 +74,7 @@ export async function fetchWeatherByCoordinates(latitude, longitude) {
  */
 export async function fetchWeatherByCity(city) {
     // fetch the weather data
-    const res = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=12a1d4d0cb0df5fcb131d94b2a1369f9`);
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=12a1d4d0cb0df5fcb131d94b2a1369f9`);
     const json = await res.json();
 
     // make sure that the required data was returned
