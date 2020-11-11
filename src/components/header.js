@@ -8,7 +8,7 @@ import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
 
 import Autocomplete from './autocomplete';
 
-import { searchCityByName, fetchWeatherByCity } from '../models/app';
+import { searchCityByName, fetchWeatherByCity, getCountryCode, fetchWeatherByCityAndCountryCode } from '../models/app';
 import { setSearchedLocationWeather } from '../redux/actions/searchedLocationWeather';
 
 import { connect } from 'react-redux';
@@ -67,10 +67,6 @@ class Header extends Component {
         // check if the search term is not empty
         if (searchTerm.trim() !== '') {
             let res = await searchCityByName(searchTerm);
-            // check if the API has returned more than 5 suggestions
-            if (res.length > 5) {
-                res = res.slice(0, 5);
-            }
             this.setState({ searchSuggestions: res });
         } else {
             this.setState({ searchSuggestions: [] });
@@ -81,12 +77,24 @@ class Header extends Component {
      * handles selecting a suggestion from the search's dropdown menu
      */
     async handleSuggestionSelection(value) {
-        // get the city name, and updates the state
+        // get the city name, and country code, then update the state
         const cityName = value.substring(0, value.indexOf(','));
+        const countryName = value.substring(value.lastIndexOf(',') + 2);
+        const countryCode = getCountryCode(countryName);;
         this.setState({ searchSuggestions: [], searchTerm: cityName });
 
-        // fetch weather data of the selected city
-        const results = await fetchWeatherByCity(cityName);
+        // check if the country code was found
+        let results = {};
+        if (countryCode) {
+            // try to fetch the weather by the city name and country code
+            results = await fetchWeatherByCityAndCountryCode(cityName, countryCode);
+        }
+
+        // check if the previous api call was successful
+        if (!results.city) {
+            // fetch weather data of the selected city
+            results = await fetchWeatherByCity(cityName);
+        }
 
         // check if the api has returned data
         if (results.city) {
