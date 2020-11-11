@@ -67,7 +67,7 @@ class Nav extends Component {
                 {
                     // displays a card containing the user's location's weather data
                     this.props.temps &&
-                    <CityWeatherCard city={this.props.city} country={this.props.country} weather={this.props.temps} />
+                    <CityWeatherCard city={this.props.city} country={this.props.country} weather={this.props.temps} datetime={this.props.datetime} />
                 }
             </div>
         );

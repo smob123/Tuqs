@@ -35,4 +35,4 @@ This is a weather app that displays the forecast of the user's current location,
 
 # Link
 
-You can visit the website from [ here](https://5faa5849984b4300079ecef0--quizzical-perlman-6e29ec.netlify.app)
+You can visit the website from [ here](https://quizzical-perlman-6e29ec.netlify.app/)

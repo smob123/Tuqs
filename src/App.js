@@ -29,13 +29,13 @@ function App() {
       // get the weather information
       const data = await fetchWeatherByCoordinates(latitude, longitude);
       // update the global state
-      store.dispatch(setUserLocationWeather({ city: data.city, country: data.country, temps: data.temps[0] }));
+      store.dispatch(setUserLocationWeather({ city: data.city, country: data.country, temps: data.temps[0], datetime: data.datetime }));
       store.dispatch(setSearchedLocationWeather(data));
     }, async (err) => {
       // get the weather of the default city (Wellington in this case) if an error occurs
       const defaultCity = 'Wellington';
       const data = await fetchWeatherByCity(defaultCity);
-      store.dispatch(setUserLocationWeather({ city: data.city, country: data.country, temps: data.temps[0] }));
+      store.dispatch(setUserLocationWeather({ city: data.city, country: data.country, temps: data.temps[0], datetime: data.datetime }));
       store.dispatch(setSearchedLocationWeather(data));
     });
   }, [])

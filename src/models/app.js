@@ -60,12 +60,17 @@ export async function fetchWeatherByCoordinates(latitude, longitude) {
         })
     }
 
+    // calculate the datetime value
+    const datetime = new Date(new Date().getTime() + (json.city.timezone * 1000));
+    datetime.setDate(datetime.getDate() - 1);
+
     return {
         city: json.city.name,
         country: countryName,
         lat: latitude,
         lon: longitude,
-        temps
+        temps,
+        datetime
     };
 }
 
@@ -122,12 +127,17 @@ export async function fetchWeatherByCity(city) {
         })
     }
 
+    // calculate the datetime value
+    const datetime = new Date(new Date().getTime() + (json.city.timezone * 1000));
+    datetime.setDate(datetime.getDate() - 1);
+
     return {
         city: json.city.name,
         country: countryName,
         lat: json.city.coord.lat,
         lon: json.city.coord.lon,
-        temps
+        temps,
+        datetime
     };
 }
 

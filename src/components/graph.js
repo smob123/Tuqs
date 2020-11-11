@@ -144,8 +144,6 @@ class Graph extends Component {
         const labels = [];
         // get today's and tomorrow's dates
         const today = new Date(Date.now());
-        let tomorrow = new Date('01/01/1990');
-        tomorrow.setDate(tomorrow.getDate() + 1);
 
         for (const item of this.props.temps) {
             // get the datetime of the current item
@@ -158,9 +156,9 @@ class Graph extends Component {
                 labels.push(datetime.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit' }));
                 // add it to the data list
                 data.push(item.maxTemp);
-            } else if (tomorrow.getDay() <= datetime.getDay()
-                && tomorrow.getMonth() <= datetime.getMonth()
-                && tomorrow.getFullYear() <= datetime.getFullYear()) {
+            } else if (today.getDay() < datetime.getDay()
+                && today.getMonth() < datetime.getMonth()
+                && today.getFullYear() < datetime.getFullYear()) {
                 // otherwise break out of the loop if we reach tomorrow's data
                 break;
             }

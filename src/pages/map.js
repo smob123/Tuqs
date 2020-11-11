@@ -73,7 +73,7 @@ class Map extends Component {
                         <div className='close-marker' onClick={() => this.setState({ displayCard: false })}>
                             X
                         </div>
-                        <CityWeatherMap city={this.props.city} country={this.props.country} weather={this.props.temps[0]} />
+                        <CityWeatherMap city={this.props.city} country={this.props.country} weather={this.props.temps[0]} datetime={this.props.datetime} />
                     </Marker>
                 }
             </WeatherMap>
