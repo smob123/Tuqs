@@ -73,7 +73,7 @@ export async function fetchWeatherByCity(city) {
     }
 
     // get the full name of the country
-    const countryData = await fetch(`https://restcountries.eu/rest/v2/alpha/${json.city.country}`);
+    const countryData = await fetch(`https://restcountries.com/v3.1/alpha?codes=${json.city.country}`);
     const countryJson = await countryData.json();
     const countryName = countryJson.name;
 
@@ -122,7 +122,7 @@ export async function fetchWeatherByCityAndCountryCode(city, countryCode) {
     }
 
     // get the full name of the country
-    const countryData = await fetch(`https://restcountries.eu/rest/v2/alpha/${json.city.country}`);
+    const countryData = await fetch(`https://restcountries.com/v3.1/alpha?codes=${json.city.country}`);
     const countryJson = await countryData.json();
     const countryName = countryJson.name;
 
